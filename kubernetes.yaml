@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git-sync-deployment
+  labels:
+    app: git-sync-example
+spec:
+  selector:
+    matchLabels:
+      app: git-sync-example
+  template:
+    metadata:
+      labels:
+        app: git-sync-example
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['watch', 'ls', '/mnt/git-sync']
+        volumeMounts:
+        - name: git-sync-volume
+          mountPath: "/mnt/git-sync"
+      - name: git-sync
+        image: markushinz/git-sync
+        env:
+        - name: GIT_REPOSITORY
+          value: "https://github.com/markushinz/git-sync.git"
+        # - name: GIT_BRANCH
+        #   value: "master"
+        # - name: SYNC_INTERVAL
+        #   value: "60"
+        volumeMounts:
+        - name: git-sync-volume
+          mountPath: "/mnt/git-sync"
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /usr/src/git-sync/healthy
+          initialDelaySeconds: 3
+          periodSeconds: 3
+      volumes:
+      - name: git-sync-volume
+        emptyDir: {}
