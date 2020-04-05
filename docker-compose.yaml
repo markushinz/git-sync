@@ -1,0 +1,11 @@
+version: '3'
+services:
+  git-sync:
+    build: .
+    image: markushinz/git-sync
+    restart: always
+    environment:
+      - GIT_REPOSITORY=https://github.com/markushinz/socket-gateway.git
+      - SYNC_INTERVAL=10
+    volumes:
+      - ./git-sync:/mnt/git-sync
