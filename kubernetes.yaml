@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: git-sync-example
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: git-sync-deployment
+  name: git-sync-example-deployment
+  namespace: git-sync-example
   labels:
     app: git-sync-example
 spec:
@@ -20,6 +26,7 @@ spec:
         volumeMounts:
         - name: git-sync-volume
           mountPath: "/mnt/git-sync"
+          readOnly: true
       - name: git-sync
         image: markushinz/git-sync
         env:
