@@ -14,6 +14,6 @@ do
 	git pull
 	rsync -av --delete . /mnt/git-sync
 	touch ../healthy
-    echo "Waiting for $SYNC_INTERVAL seconds..."
+	echo "Waiting for $SYNC_INTERVAL seconds..."
 	sleep "$SYNC_INTERVAL"
 done
