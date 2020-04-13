@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 services:
   git-sync:
     build: .
-    image: markushinz/git-sync
+    image: markushinz/git-sync:1.0.0
     restart: always
     environment:
       - GIT_REPOSITORY=https://github.com/markushinz/git-sync.git
