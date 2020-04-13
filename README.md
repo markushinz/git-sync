@@ -10,4 +10,4 @@ A clean & simple alternative to [kubernetes/git-sync](https://github.com/kuberne
 | `GIT_BRANCH` |  remote branch name | no | `master` (default) |
 | `SYNC_INTERVAL` |  time interval between pulls in seconds | no | `60 `(default) |
 
-Have a look at (docker-compose.yaml)(docker-compose.yaml) and [k8s.yaml](k8s.yaml) on how to use it.
+Have a look at [docker-compose.yaml](docker-compose.yaml) and [k8s.yaml](k8s.yaml) on how to use it.
