@@ -2,7 +2,7 @@ version: "3"
 services:
   git-sync:
     build: .
-    # image: markushinz/docker.pkg.github.com/markushinz/git-sync/git-sync:latest
+    # image: markushinz/markushinz/git-sync:latest
     restart: always
     environment:
       - GIT_REPOSITORY=https://github.com/markushinz/git-sync.git
