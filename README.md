@@ -1,6 +1,6 @@
 # git-sync
 
-`markushinz/git-sync:1.0.0`
+[`docker.pkg.github.com/markushinz/git-sync/git-sync:1.0.0`](https://github.com/markushinz/git-sync/packages/191001?version=1.0.0)
 
 A clean & simple alternative to [kubernetes/git-sync](https://github.com/kubernetes/git-sync) to sync git repositories into docker-compose or Kubernetes volumes. It will continiously pull a repository into a volume and overwrite any modifications other containers may have performed.
 
